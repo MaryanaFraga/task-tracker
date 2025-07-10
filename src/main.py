@@ -17,9 +17,33 @@ def menu():
     "2 - LIST TASKS\n"
     "3 - DELETE TAKS\n"
     "4 - EXIT\n")
-    
+
+
+def createNewTask():
+    print("CREATING TASK: ")
+
+    name = input("TYPE TASK'S NAME >>> ")
+    deadline = input("TYPE TASKS DEADLINE (month/day) >>> ")
+    print("\n")
+
+    newTask = Task(len(task_array) + 1, name, 0, deadline)
+
+    # If the new task was in fact created, it will be added by the end of the array
+    if newTask:
+        task_array.append(newTask)
+        print("TASK ADDED SUCESSFULLY.\n")
+
+    else:
+        print("SOMETHING WENT WRONG.\n")
+
+    print("ID - TASK | STATUS | DEADLINE\n")
+    for task in task_array:
+        print(task)
+
 
 if __name__ == "__main__":
+    task_array = []
+
     while(True):
         menu()
         option = input("TYPE YOUR OPTION (1-4) >>> ")
@@ -27,12 +51,13 @@ if __name__ == "__main__":
 
         match option:
             case '1':
-                print("CREATE\n")
+                createNewTask()
             case '2':
                 print("LIST\n")
             case '3':
                 print("DELETE\n")
             case '4':
+                print("EXITING...\n")
                 break
             case _:
                 print("SORRY, NO OPTION MATCHED. TRY AGAIN.\n\n")
