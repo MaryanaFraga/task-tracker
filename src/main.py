@@ -36,9 +36,31 @@ def createNewTask():
     else:
         print("SOMETHING WENT WRONG.\n")
 
+
+def listTasksMenu():
+    listTasks()
+
+    # This is a menu for future features
+    print("1 - FILTER    2 - UPDATE     3 - GO BACK")
+    option = input("TYPE YOUR OPTION (1-3) >>> ")
+    print("\n")
+
+    match option:
+            case '1':
+                print("FILTER TASKS")
+            case '2':
+                print("UPDATE A TASK")
+            case '3':
+                return
+            case _:
+                print("SORRY, NO OPTION MATCHED.\n\n")
+
+
+def listTasks():
     print("ID - TASK | STATUS | DEADLINE\n")
     for task in task_array:
         print(task)
+    print("\n")
 
 
 if __name__ == "__main__":
@@ -53,7 +75,7 @@ if __name__ == "__main__":
             case '1':
                 createNewTask()
             case '2':
-                print("LIST\n")
+                listTasksMenu()
             case '3':
                 print("DELETE\n")
             case '4':
