@@ -10,6 +10,22 @@ class Task:
     def __str__(self):
         return f'{self.id} - {self.name} | {self.status} | {self.deadline}'
 
+     # Method to turn Task's objects into dictionaries
+    def to_dict(self):
+        return{
+            "id" : self.id,
+            "name" : self.name,
+            "status" : self.status,
+            "deadline" : self.deadline
+        }
+
+    # This function doesn't belong to any instance, but to the class, that's why @classmethod
+    # That's also why it doesn't call self as a parameter
+    # It turns the dictionary into a Task object
+    # AT LEAST THAT'S WHAT I UNDESTOOD UNTILL NOW
+    @classmethod
+    def from_dict(Animal, data):
+        return Animal(**data)
 
 def menu():
     print("*** TASK MANAGER ***\n\n"
