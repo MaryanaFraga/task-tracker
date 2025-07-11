@@ -1,3 +1,5 @@
+import json
+
 class Task:
     # Task's constructor
     def __init__(self, id, name, status, deadline):
@@ -88,7 +90,18 @@ def deleteTaskMenu():
 
 
 if __name__ == "__main__":
+    try:
+        with open("task-tracker/src/tasks.json", mode = "r") as open_file:
+            tasks_data_dict = json.load(open_file)
+                
+    except:
+        tasks_data_dict = []
+
     task_array = []
+
+    for d in tasks_data_dict:
+        t = Task.from_dict(d)
+        task_array.append(t)
 
     while(True):
         menu()
@@ -107,3 +120,12 @@ if __name__ == "__main__":
                 break
             case _:
                 print("SORRY, NO OPTION MATCHED. TRY AGAIN.\n\n")
+
+    tasks_data_dict = []
+
+    for t in task_array:
+        d = Task.to_dict(t)
+        tasks_data_dict.append(d)
+
+    with open("task-tracker/src/tasks.json", mode = "w") as open_file:
+        json.dump(tasks_data_dict, open_file, indent=4)
