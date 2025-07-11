@@ -7,4 +7,4 @@ _In this project I plan to:_
   * Practice using GIT.
   * Learn to make proper commit messages.
 
-> on progress
+> In progress...
