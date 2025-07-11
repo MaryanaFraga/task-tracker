@@ -60,7 +60,15 @@ def listTasks():
     print("ID - TASK | STATUS | DEADLINE\n")
     for task in task_array:
         print(task)
-    print("\n")
+
+
+def deleteTaskMenu():
+    listTasks()
+    id = int(input("TYPE TASK ID >>> "))
+    for task in task_array:
+        if id == task.id:
+            task_array.remove(task)
+            print(f"TASK N({id}) WAS REMOVED.")
 
 
 if __name__ == "__main__":
@@ -77,7 +85,7 @@ if __name__ == "__main__":
             case '2':
                 listTasksMenu()
             case '3':
-                print("DELETE\n")
+                deleteTaskMenu()
             case '4':
                 print("EXITING...\n")
                 break
