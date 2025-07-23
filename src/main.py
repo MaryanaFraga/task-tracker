@@ -88,6 +88,18 @@ def deleteTaskMenu():
             task_array.remove(task)
             print(f"TASK N({id}) WAS REMOVED.")
 
+def help():
+    print("\n\n"
+    ">>> add <task-in-quotes>\n"
+    ">>> update <task-id> <new-task-in-quotes>\n"
+    ">>> delete <task-id>\n"
+    ">>> list\n"
+    ">>> mark-in-progress <task-id>\n"
+    ">>> mark-done <task-id>\n"
+    ">>> list done\n"
+    ">>> list to-do\n"
+    ">>> list in-progress\n")
+
 
 if __name__ == "__main__":
     try:
